@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TasksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
+
+// Route::get('about', 'TasksController@index'); // This will not work???? 
+// Route::get('about', 'App\Http\Controllers\TasksController@index'); // this will work
+Route::get('tasks', [TasksController::class, 'index']); // this will work too.
